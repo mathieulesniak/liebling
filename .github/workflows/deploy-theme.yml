@@ -3,12 +3,12 @@ on: [push]
 
 jobs:
   deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@master
       - uses: actions/setup-node@v1
         with:
-          node-version: '10.x'
+          node-version: '16.x'
       - run: npm install
         working-directory: ./src
       - name: Build and deploy the theme
