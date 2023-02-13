@@ -7,18 +7,16 @@ This header template is shared across all the pages.
     <button class="m-icon-button in-mobile-topbar js-open-menu" aria-label="{{t "Open menu"}}">
       <span class="icon-menu" aria-hidden="true"></span>
     </button>
-    {{#if @site.logo}}
-      <a href="{{@site.url}}" class="m-logo in-mobile-topbar">
+    <a href="{{@site.url}}" class="m-site-name in-mobile-topbar">
+      {{#if @site.logo}}
         <img src="{{@site.logo}}" alt="{{@site.title}}" class="{{#if @custom.dark_mode_logo}}m-logo__image-light{{/if}}">
         {{#if @custom.dark_mode_logo}}
           <img src="{{@custom.dark_mode_logo}}" alt="{{@site.title}}" class="m-logo__image-dark">
         {{/if}}
-      </a>
-    {{else}}
-      <a href="{{@site.url}}" class="m-site-name in-mobile-topbar">
-        {{@site.title}}
-      </a>
-    {{/if}}
+      {{/if}}
+      {{@site.title}}
+    </a>
+    
     <button class="m-icon-button in-mobile-topbar {{^if @custom.enable_native_search}}js-open-search{{/if}}" {{#if @custom.enable_native_search}}data-ghost-search{{/if}} aria-label="{{t "Open search"}}">
       <span class="icon-search" aria-hidden="true"></span>
     </button>
@@ -40,6 +38,7 @@ This header template is shared across all the pages.
                     {{#if @custom.dark_mode_logo}}
                       <img src="{{@custom.dark_mode_logo}}" alt="{{@site.title}}" class="m-logo__image-dark">
                     {{/if}}
+                    {{@site.title}}
                   </a>
                 </li>
                 {{else}}
@@ -100,7 +99,7 @@ This header template is shared across all the pages.
                     </section>
                     <section class="m-tags">
                       <h3 class="m-submenu-title">{{t "Tags"}}</h3>
-                      {{#get "tags" limit="10"}}
+                      {{#get "tags" limit="10" include="count.posts" order="count.posts desc"}}
                         <ul>
                           {{#foreach tags}}
                             <li>

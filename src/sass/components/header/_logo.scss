@@ -1,11 +1,16 @@
 .m-logo {
   display: inline-block;
   height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
 
   img {
     width: auto;
     max-width: 150px;
-    height: 100%;
+    height: 200%;
     object-fit: contain;
 
     &.m-logo__image-light {

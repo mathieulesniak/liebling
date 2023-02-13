@@ -2,6 +2,13 @@
   &.in-mobile-topbar {
     color: var(--titles-color);
     font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    img {
+      max-height: 50px;
+    }
   }
 
   &.in-desktop-menu {
