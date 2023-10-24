@@ -98,20 +98,6 @@ This header template is shared across all the pages.
                         {{/if}}
                       {{/get}}
                     </section>
-                    <section class="m-tags">
-                      <h3 class="m-submenu-title">{{t "Tags"}}</h3>
-                      {{#get "tags" limit="10"}}
-                        <ul>
-                          {{#foreach tags}}
-                            <li>
-                              <a href="{{url}}">{{name}}</a>
-                            </li>
-                            {{else}}
-                              <li class="m-not-found">{{t "No tags found :("}}</li>
-                          {{/foreach}}
-                        </ul>
-                      {{/get}}
-                    </section>
                   </div>
                 </div>
               </li>
