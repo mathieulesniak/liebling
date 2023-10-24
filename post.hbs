@@ -167,13 +167,24 @@ into the {body} of the default.hbs template --}}
           </div>
         {{/if}}
         {{!-- Third-party comments --}}
-        {{!--
           <section class="m-comments">
             <div class="l-wrapper in-comments js-third-party-comments">
-              <!-- Paste here the provided code snippet -->
+              <div id="disqus_thread"></div>
+              <script>
+                  var disqus_config = function () {
+                      this.page.url = "{{url absolute="true"}}";
+                      this.page.identifier = "ghost-{{comment_id}}"
+                  };
+                  (function() {
+                  var d = document, s = d.createElement('script');
+                  s.src = 'https://l2-ceramique.disqus.com/embed.js';
+                  s.setAttribute('data-timestamp', +new Date());
+                  (d.head || d.body).appendChild(s);
+                  })();
+              </script>
             </div>
           </section>
-        --}}
+        
       {{/post}}
       {{!-- Related posts --}}
       {{#if post.tags.length}}

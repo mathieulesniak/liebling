@@ -41,7 +41,28 @@ into the {body} of the default.hbs template --}}
   </div>
   </section>
   <div class="l-content">
-    <div class="l-wrapper" data-animate="fade-up">
+    <div class="l-wrapper">
+      {{#is "home"}}
+        {{> products-teaser headline="À la une" id_category="14" }}
+
+        {{> products-teaser headline="Coup de coeur" id_category="15"}}
+
+        <div class="l-wrapper about">
+          <div class="picture" style="background-image: url({{asset "images/laetitia-l2ceramique.jpg"}})"></div>
+          <div class="storytelling">
+            <h3>Laëtitia LESNIAK</h3>
+            <p>
+                Passionnée de céramique depuis près de 20 ans, le rythme de la vie quotidienne m'a un temps tenue éloignée de l'atelier.
+            </p>
+            <p>Je partage avec vous l'élaboration de mes nouvelles pièces selon les envies et inspirations du moment.</p>
+            <p>Vous découvrirez les différents tests, réussites et échecs, mais aussi des astuces et conseils pour découvrir le monde de la céramique</p>
+            <a href="/a-propos/" class="m-button filled">Mon histoire</a>
+          </div>
+        </div>
+        
+        <h2>Sur le blog</h2>
+      {{/is}}
+      
       <div class="l-grid centered">
         {{#get "posts" filter="featured:true" include="authors,tags" limit="5" as |featured|}}
           {{#if featured}}
@@ -110,6 +131,13 @@ into the {body} of the default.hbs template --}}
     </div>
     {{!-- Links to Previous/Next posts --}}
     {{pagination}}
+
+    {{#is "home"}}
+      <div class="l-wrapper">
+        {{> instagram-teaser }}
+      </div>
+    {{/is}}
+    
   </div>
 </main>
 
