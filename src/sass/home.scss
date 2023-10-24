@@ -3,3 +3,51 @@
 
 @import "components/articles/featured-slider";
 @import "components/articles/featured-article";
+
+.about {
+    max-width: 900px;
+    @include bs(var(--article-shadow-normal));
+    background-color: var(--background-color);
+    
+    min-height: 27rem;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--secondary-subtle-color);
+
+    @include respond-to("medium") {
+        flex-direction: row;
+        height: 27rem;
+    }
+    .picture {
+        display: none;
+        background-size: contain;
+        height: 100%;
+        @include respond-to("medium") {
+            width: 50%;
+            display: block;
+        }
+    }
+
+    .storytelling {
+        padding: 20px;
+        
+        @include respond-to("medium") {
+            width: 66%;
+        }
+        p {
+            margin: 2rem 0;
+        }
+
+        .m-button {
+            margin: 0 auto;
+            display: block;
+            background-color: var(--background-color);
+            color: var(--secondary-foreground-color);
+            border-color: var(--secondary-foreground-color);
+            border-width: 1px;
+            border-style: solid;
+        }
+    }
+}

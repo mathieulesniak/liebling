@@ -1,0 +1,73 @@
+.m-instagram-card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 20px;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    border: 1px solid var(--secondary-border-color);
+    z-index: 1;
+    @include transition(all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1));
+  
+    &:hover {
+      @include transform(translateY(-5px));
+  
+      &:before {
+        @include bs(var(--article-shadow-hover));
+      }
+  
+      .m-article-card__author {
+        @include bs(0 4px 8px rgba(0, 0, 0, 0.3));
+      }
+    }
+  
+    @include respond-to("medium") {
+      width: calc((100% / 2) - 20px);
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-bottom: 20px;
+    }
+  
+    @include respond-to("large") {
+      width: calc((100% / 4) - 40px);
+    }
+  }
+  
+  .m-instagram-card__picture {
+    position: relative;
+    height: 200px;
+    border-radius: 10px;
+    background-color: var(--secondary-subtle-color);
+    overflow: hidden;
+    @include transform(translateZ(0));
+  
+    @include respond-to("medium") {
+      height: 220px;
+    }
+  }
+  
+  .m-instagram-card__picture-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  
+  .m-instagram-card__picture-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .instagram-teaser__link {
+    text-align: center;
+    .icon-instagram {
+        vertical-align: bottom;
+    }
+  }

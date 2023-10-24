@@ -2,33 +2,115 @@
 This footer template is shared across all the pages.
 --}}
 
+
+<section class="g-newsletter">
+    <div class="g-newsletter__shape">  
+      <svg xmlns="http://www.w3.org/2000/svg" width="520" height="520" viewBox="0 0 520 520" class="g-circles-shape alt-version" aria-hidden="true">
+        <g fill="none" fill-rule="evenodd" class="stroke-shape">
+          <circle cx="260" cy="260" r="187.5"></circle>
+          <circle cx="260" cy="260" r="259.5"></circle>
+          <circle cx="259.5" cy="260.5" r="115"></circle>
+        </g>
+      </svg>
+    </div>
+    <div class="g-newsletter__wrapper">
+      <svg xmlns="http://www.w3.org/2000/svg" width="114" height="69" viewBox="0 0 114 69" aria-hidden="true" class="g-newsletter__icon">
+        <g fill="none" fill-rule="evenodd" transform="translate(1.837 1.278)">
+          <g opacity=".2">
+            <g transform="rotate(-8 73.542 -451.079)">
+              <polyline stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" points="10.5 20.303 21 27.653 31.5 20.303" class="fill"></polyline>
+              <path stroke-width="1.5" d="M0,37.1028404 L0,14.2800404 C0,12.8047294 0.774035035,11.4375879 2.0391,10.6785404 L18.8391,0.598540408 C20.1691749,-0.199513469 21.8308251,-0.199513469 23.1609,0.598540408 L39.9609,10.6785404 C41.225965,11.4375879 42,12.8047294 42,14.2800404 L42,37.1028404 C42,39.4224364 40.1195959,41.3028404 37.8,41.3028404 L4.2,41.3028404 C1.88040405,41.3028404 0,39.4224364 0,37.1028404 Z" class="fill"></path>
+            </g>
+          </g>
+          <g opacity=".202">
+            <g transform="rotate(-24 92.996 19.767)">
+              <polyline stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" points="10.5 8.4 21 15.75 31.5 8.4" class="fill"></polyline>
+              <path stroke-width="1.5" d="M0,25.2 L0,4.2 C0,1.88040405 1.88040405,0 4.2,0 L37.8,0 C40.1195959,0 42,1.88040405 42,4.2 L42,25.2 C42,27.5195959 40.1195959,29.4 37.8,29.4 L4.2,29.4 C1.88040405,29.4 0,27.5195959 0,25.2 Z" class="fill"></path>
+            </g>
+          </g>
+        </g>
+      </svg>
+        <div class="g-newsletter__container">
+          <div class="g-newsletter__callout">
+            <h4 class="g-newsletter__title">
+              Inscrivez-vous à la newsletter et restez au courant des dernières nouveautés !
+            </h4>
+          </div>
+          <script async src="https://eocampaign1.com/form/043f7052-6ff9-11ee-af96-fb6f25a23fd2.js" data-form="043f7052-6ff9-11ee-af96-fb6f25a23fd2"></script>
+        </div>
+      </div>
+    </section>
+
 <footer class="m-footer">
-  <div class="m-footer__content">
-    {{#if @site.secondary_navigation}}
-      <nav class="m-footer__nav-secondary" role="navigation" aria-label="{{t "Secondary menu in footer"}}">
-        {{navigation type="secondary"}}
-      </nav>
-    {{/if}}
-    <nav class="m-footer-social">
-      <a href="https://www.instagram.com/l2ceramique" target="_blank" rel="noopener" aria-label="Instagram">
-          <span class="icon-instagram" aria-hidden="true"></span>
-        </a>
-      {{#if @site.facebook}}
-        <a href="{{facebook_url @site.facebook}}" target="_blank" rel="noopener" aria-label="Facebook">
-          <span class="icon-facebook" aria-hidden="true"></span>
-        </a>
-      {{/if}}
-      {{#if @site.twitter}}
-        <a href="{{twitter_url @site.twitter}}" target="_blank" rel="noopener" aria-label="Twitter">
-          <span class="icon-twitter" aria-hidden="true"></span>
-        </a>
-      {{/if}}
-      <a href="{{@site.url}}/rss" aria-label="RSS">
-        <span class="icon-rss" aria-hidden="true"></span>
-      </a>
-    </nav>
-    <p class="m-footer-copyright">
-      <span>{{@site.title}} &copy; {{date format="YYYY"}}</span>
-    </p>
+  
+  <div class="l-wrapper flex">
+    <div class="footer-block">
+        <div class="line">
+          <div class="title">
+            Mes créations
+          </div>
+          <div class="links">
+            <a href="/boutique/21-mes-petits-pots">Mes petits pots</a>
+            <a href="/boutique/20-bols">Bols</a>
+            <a href="/boutique/16-ramequins-et-petits-bols">Ramequins &amp; petits bols</a>
+            <a href="/boutique/13-tasses">Tasses</a>
+            <a href="/boutique/12-coupelles-en-ceramique">Coupelles en céramique</a>
+            <a href="/boutique/23-assiettes">Assiettes</a>
+            <a href="/boutique/17-vases-et-cache-pots">Vases &amp; Cache-pots</a>
+            <a href="/boutique/18-bougies">Bougies</a>
+            <a href="/boutique/24-decoration">Décoration</a>
+          </div>
+        </div>
+        <div class="line">
+          <div class="title">
+            Collections
+          </div>
+          <div class="links">
+            <a href="/boutique/19-collection-halloween">Collection Halloween 🎃</a>
+            <a href="/boutique/22-collection-noel">Collection Noël 🎄</a>
+          </div>
+        </div>
+        <div class="line">
+          <div class="title">
+            Espace Client 
+          </div>
+          <div class="links">
+            <a href="/boutique/mon-compte" rel="nofollow">Mon compte</a>
+            <a href="/boutique/historique-commandes" rel="nofollow">Mes commandes</a>
+            <a href="/boutique/identite" rel="nofollow">Mes informations personnelles</a>
+          </div>
+        </div>
+        <div class="line">
+          <div class="title">
+            Informations
+          </div>
+          <div class="links">
+            <a href="/foire-aux-questions/" rel="nofollow">Aide et questions fréquentes</a>
+            <a href="/boutique/plan-site">Plan du site</a>
+          </div>
+        </div>
+    </div>
+    <div class="footer-contact">
+        <div class="title">Contactez-moi :</div>
+        <div class="medium">
+          <svg xmlns="https://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 28.724 29.513"><path d="M20.29,29.513H8.434A8.437,8.437,0,0,1,0,21.085V8.434A8.438,8.438,0,0,1,8.434,0H20.29a8.442,8.442,0,0,1,8.434,8.434V21.085A8.445,8.445,0,0,1,20.29,29.513ZM8.434,2.164a6.275,6.275,0,0,0-6.27,6.27V21.085a6.275,6.275,0,0,0,6.27,6.27H20.29a6.275,6.275,0,0,0,6.27-6.27V8.434a6.275,6.275,0,0,0-6.27-6.27H8.434Z"></path><g transform="translate(6.517 6.871)"><path d="M113.542,127.132a7.854,7.854,0,0,1-7.842-7.842,7.973,7.973,0,0,1,2.4-5.69,7.481,7.481,0,0,1,5.475-2.152,8.114,8.114,0,0,1,5.857,2.38,7.571,7.571,0,0,1,1.942,5.487,8.008,8.008,0,0,1-2.324,5.512A7.677,7.677,0,0,1,113.542,127.132Zm-.179-13.046a4.894,4.894,0,0,0-3.416,1.406,5.319,5.319,0,0,0-1.6,3.792,5.2,5.2,0,1,0,10.394-.031h0a5.031,5.031,0,0,0-1.227-3.625,5.577,5.577,0,0,0-4.007-1.547A1.092,1.092,0,0,1,113.363,114.086Z" transform="translate(-105.7 -111.444)"></path></g><circle cx="1.831" cy="1.831" r="1.831" transform="translate(20.561 4.821)"></circle></svg>
+          <a href="https://www.instagram.com/l2ceramique" rel="noopener nofollow noreferrer">@l2ceramique</a>
+        </div>
+        <div class="medium">
+          <svg xmlns="https://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 512 512"><path d="M464 64H48C21.5 64 0 85.5 0 112v288c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM48 96h416c8.8 0 16 7.2 16 16v41.4c-21.9 18.5-53.2 44-150.6 121.3-16.9 13.4-50.2 45.7-73.4 45.3-23.2.4-56.6-31.9-73.4-45.3C85.2 197.4 53.9 171.9 32 153.4V112c0-8.8 7.2-16 16-16zm416 320H48c-8.8 0-16-7.2-16-16V195c22.8 18.7 58.8 47.6 130.7 104.7 20.5 16.4 56.7 52.5 93.3 52.3 36.4.3 72.3-35.5 93.3-52.3 71.9-57.1 107.9-86 130.7-104.7v205c0 8.8-7.2 16-16 16z"></path></svg>
+          <a href="mailto:contact@l2ceramique.com">contact@l2ceramique.com</a>
+        </div>
+        <div class="medium">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-tiktok" viewBox="0 0 16 16"><path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3V0Z"></path></svg>
+          <a href="https://www.tiktok.com/@l2ceramique" target="_blank" rel="noopener nofollow noreferrer">@l2ceramique</a>
+        </div>
+    </div>
+  </div>
+  <div class="overall-footer">
+    &copy; {{@site.title}} {{date format="YYYY"}} 
+    -
+    <a href="/conditions-dutilisation-et-de-vente/" title="Conditions générales de vente et d'utilisation" rel="nofollow">CGV/CGU</a>
+    - 
+    Fabriqué avec ❤️ en 🇫🇷
   </div>
 </footer>
