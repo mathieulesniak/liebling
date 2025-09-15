@@ -124,6 +124,44 @@ $(() => {
     }
   }
 
+  const showReviewsTeaser = async () => {
+    const placeholder = document.querySelector('.reviews-teaser');
+    if (placeholder) {
+      const url = 'https://www.l2ceramique.com/reviews.json';
+      let pictures = [];
+      let nbTeasers = 0;
+      let output = '';
+      
+      try {
+        const response = await fetch(url);
+        reviews = await response.json();
+      } catch (error) {
+        // Failed to fetch products
+        placeholder.innerHTML = '';
+        return;
+      }
+      console.log(reviews);
+/*
+      pictures.forEach((picture) => {
+        nbTeasers++;
+        if (nbTeasers > 4) {
+          return;
+        }
+        const mediaUrl = picture.is_video ? picture.thumbnail_url : picture.media_url;
+        output += `<article class="m-instagram-card">
+        <div class="m-instagram-card__picture">
+          <a href="${picture.permalink}" class="m-instagram-card__picture-link" aria-hidden="true" tabindex="-1"></a>
+            <img class="m-instagram-card__picture-background" src="${mediaUrl}" loading="lazy" alt="">
+        </div>
+
+      </article>`;
+      });
+
+      placeholder.querySelector('.placeholder').innerHTML = output;
+      */
+    }
+  }
+
   const showSubmenu = () => {
     $header.addClass('submenu-is-active');
     $toggleSubmenu.addClass('active');
@@ -388,4 +426,5 @@ $(() => {
   
   showProductsTeaser();
   showInstagramTeaser();
+  showReviewsTeaser();
 });
