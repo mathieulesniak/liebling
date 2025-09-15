@@ -11,9 +11,7 @@ import { isRTL, formatDate, isMobile } from './helpers';
 
 $(() => {
   if (isRTL()) {
-    $('html')
-      .attr('dir', 'rtl')
-      .addClass('rtl');
+    $('html').attr('dir', 'rtl').addClass('rtl');
   }
 
   const $body = $('body');
@@ -43,11 +41,12 @@ $(() => {
   let submenuIsOpen = false;
   let secondaryMenuTippy = null;
 
-
   const showProductsTeaser = () => {
     document.querySelectorAll('.products-teaser').forEach(async (element) => {
-      const url = 'https://www.l2ceramique.com/boutique/promotedProductJson.php?id_category=' + element.dataset.category;
-      
+      const url =
+        'https://www.l2ceramique.com/boutique/promotedProductJson.php?id_category=' +
+        element.dataset.category;
+
       let products = [];
       try {
         const response = await fetch(url);
@@ -86,16 +85,17 @@ $(() => {
 
       element.querySelector('.placeholder').innerHTML = output;
     });
-  }
+  };
 
   const showInstagramTeaser = async () => {
     const placeholder = document.querySelector('.instagram-teaser');
     if (placeholder) {
-      const url = 'https://ig-widget.eskuel.net/widgets/json/beeaa476-7f9a-483d-826f-d296bf5c3a5c.json';
+      const url =
+        'https://ig-widget.eskuel.net/widgets/json/beeaa476-7f9a-483d-826f-d296bf5c3a5c.json';
       let pictures = [];
       let nbTeasers = 0;
       let output = '';
-      
+
       try {
         const response = await fetch(url);
         pictures = await response.json();
@@ -110,7 +110,9 @@ $(() => {
         if (nbTeasers > 4) {
           return;
         }
-        const mediaUrl = picture.is_video ? picture.thumbnail_url : picture.media_url;
+        const mediaUrl = picture.is_video
+          ? picture.thumbnail_url
+          : picture.media_url;
         output += `<article class="m-instagram-card">
         <div class="m-instagram-card__picture">
           <a href="${picture.permalink}" class="m-instagram-card__picture-link" aria-hidden="true" tabindex="-1"></a>
@@ -122,16 +124,16 @@ $(() => {
 
       placeholder.querySelector('.placeholder').innerHTML = output;
     }
-  }
+  };
 
   const showReviewsTeaser = async () => {
     const placeholder = document.querySelector('.reviews-teaser');
     if (placeholder) {
-      const url = 'https://www.l2ceramique.com/reviews.json';
+      const url = 'https://www.l2ceramique.com/boutique/reviews.json';
       let pictures = [];
       let nbTeasers = 0;
       let output = '';
-      
+
       try {
         const response = await fetch(url);
         reviews = await response.json();
@@ -141,26 +143,46 @@ $(() => {
         return;
       }
       console.log(reviews);
-/*
-      pictures.forEach((picture) => {
+
+      reviews.forEach((review) => {
         nbTeasers++;
         if (nbTeasers > 4) {
           return;
         }
-        const mediaUrl = picture.is_video ? picture.thumbnail_url : picture.media_url;
-        output += `<article class="m-instagram-card">
-        <div class="m-instagram-card__picture">
-          <a href="${picture.permalink}" class="m-instagram-card__picture-link" aria-hidden="true" tabindex="-1"></a>
-            <img class="m-instagram-card__picture-background" src="${mediaUrl}" loading="lazy" alt="">
-        </div>
+      
+        output += `<div class="reviewcard ">
+                    <p style="review-text">${review.review}</p>
+                      <div style="display: flex; justify-content: space-between; ">
+                          <div style="display: flex; flex-direction: column; gap: 16px; justify-content: center; align-items: center; width: 100%;">
+                            <div style="display: flex; flex-direction: row; height: 1rem;">`;
+        for (let i = 1; i <= review.rating; i++) {
+          output += `<div class="h-4 w-4 mask mask-star-2 bg-yellow-400" aria-label="${i} star"></div>`;
+        }
+        for (let i = review.rating; i < 5; i++) {
+          output += `<div class="h-4 w-4 mask mask-star-2 bg-slate-200" aria-label="${i} star"></div>`;
+        }
 
-      </article>`;
+        output += `         </div>
+                            <div style="display: flex; gap: 1rem; align-items: center; ">
+                              <div class="avatar">
+                                <div class="w-12 rounded-full">
+                                  <img src="${review.buyer_avatar}" alt="Avis client ${review.buyer_first_name}">
+                                </div>
+                              </div>
+                              <div>
+                              <div style="font-size:12px">Par&nbsp;${review.buyer_first_name} ${review.buyer_last_name}</div>
+                              <div style="font-size:12px">${review.created_at}</div>
+                            </div>
+                          </div>
+                        </div>
+                        <img style="max-width: 128px;border-top-left-radius: 0.5rem; border-bottom-right-radius: 0.5rem;" src="${review.image_medium}" alt="Avis ${review.rating} étoiles L2Céramique par ${review.buyer_first_name}">
+                      </div>
+                    </div>`;
       });
 
       placeholder.querySelector('.placeholder').innerHTML = output;
-      */
     }
-  }
+  };
 
   const showSubmenu = () => {
     $header.addClass('submenu-is-active');
@@ -185,7 +207,10 @@ $(() => {
   };
 
   const trySearchFeature = () => {
-    if (typeof ghostSearchApiKey !== 'undefined' && typeof nativeSearchEnabled === 'undefined') {
+    if (
+      typeof ghostSearchApiKey !== 'undefined' &&
+      typeof nativeSearchEnabled === 'undefined'
+    ) {
       getAllPosts(ghostHost, ghostSearchApiKey);
     } else {
       $openSearch.css('visibility', 'hidden');
@@ -198,7 +223,7 @@ $(() => {
     const api = new GhostContentAPI({
       url: host,
       key,
-      version: 'v5.0'
+      version: 'v5.0',
     });
     const allPosts = [];
     const fuseOptions = {
@@ -207,28 +232,28 @@ $(() => {
       findAllMatches: true,
       includeScore: true,
       minMatchCharLength: 2,
-      keys: ['title', 'custom_excerpt', 'tags.name']
+      keys: ['title', 'custom_excerpt', 'tags.name'],
     };
 
     api.posts
       .browse({
         limit: 'all',
         include: 'tags',
-        fields: 'id, title, url, published_at, custom_excerpt'
+        fields: 'id, title, url, published_at, custom_excerpt',
       })
-      .then(posts => {
+      .then((posts) => {
         for (let i = 0, len = posts.length; i < len; i++) {
           allPosts.push(posts[i]);
         }
 
         fuse = new Fuse(allPosts, fuseOptions);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   };
 
-  const toggleDesktopTopbarOverflow = disableOverflow => {
+  const toggleDesktopTopbarOverflow = (disableOverflow) => {
     if (!isMobile()) {
       if (disableOverflow) {
         $mainNav.addClass('toggle-overflow');
@@ -279,7 +304,7 @@ $(() => {
   $inputSearch.on('keyup', () => {
     if ($inputSearch.val().length > 0 && fuse) {
       const results = fuse.search($inputSearch.val());
-      const bestResults = results.filter(result => {
+      const bestResults = results.filter((result) => {
         if (result.score <= 0.5) {
           return result;
         }
@@ -337,7 +362,7 @@ $(() => {
     toggleDesktopTopbarOverflow(false);
   });
 
-  $(window).on('click', e => {
+  $(window).on('click', (e) => {
     if (submenuIsOpen) {
       if ($submenuOption && !$submenuOption.contains(e.target)) {
         submenuIsOpen = false;
@@ -346,7 +371,7 @@ $(() => {
     }
   });
 
-  $(document).on('keyup', e => {
+  $(document).on('keyup', (e) => {
     if (e.key === 'Escape' && $search.hasClass('opened')) {
       $closeSearch.trigger('click');
     }
@@ -354,7 +379,7 @@ $(() => {
 
   if (currentSavedTheme) {
     if (currentSavedTheme === 'dark') {
-      $toggleDarkMode.each(function() {
+      $toggleDarkMode.each(function () {
         $(this).attr('checked', true);
       });
     }
@@ -364,7 +389,7 @@ $(() => {
     const headroom = new Headroom($header[0], {
       tolerance: {
         down: 10,
-        up: 20
+        up: 20,
       },
       offset: 15,
       onUnpin: () => {
@@ -378,7 +403,7 @@ $(() => {
             desktopSecondaryMenuTippy.hide();
           }
         }
-      }
+      },
     });
     headroom.init();
   }
@@ -390,10 +415,10 @@ $(() => {
       slidesPerView: 'auto',
       a11y: true,
       on: {
-        init: function() {
+        init: function () {
           shave('.js-recent-article-title', 50);
-        }
-      }
+        },
+      },
     });
   }
 
@@ -412,7 +437,7 @@ $(() => {
       },
       onHidden() {
         toggleDesktopTopbarOverflow(false);
-      }
+      },
     });
   }
 
@@ -423,7 +448,7 @@ $(() => {
 
   tryToRemoveNewsletter();
   trySearchFeature();
-  
+
   showProductsTeaser();
   showInstagramTeaser();
   showReviewsTeaser();
