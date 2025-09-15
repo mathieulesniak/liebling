@@ -130,7 +130,6 @@ $(() => {
     const placeholder = document.querySelector('.reviews-teaser');
     if (placeholder) {
       const url = 'https://www.l2ceramique.com/boutique/reviews.json';
-      let pictures = [];
       let nbTeasers = 0;
       let output = '';
 
@@ -138,6 +137,7 @@ $(() => {
         const response = await fetch(url);
         reviews = await response.json();
       } catch (error) {
+        console.error(error);
         // Failed to fetch products
         placeholder.innerHTML = '';
         return;
