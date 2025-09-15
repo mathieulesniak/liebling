@@ -24,11 +24,12 @@
             @include bs(var(--article-shadow-hover));
         }
     }
-
-    .review-text {
-        padding: 12px;
-    }
 }
+
+.review-text {
+    padding: 12px;
+}
+
 .avatar > div {
     aspect-ratio: 1;
     display: block;
