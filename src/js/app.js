@@ -129,20 +129,21 @@ $(() => {
   const showReviewsTeaser = async () => {
     const placeholder = document.querySelector('.reviews-teaser');
     if (placeholder) {
+      console.log(placeholder);
       const url = 'https://www.l2ceramique.com/boutique/reviews.json';
       let nbTeasers = 0;
       let output = '';
-
+      let reviews;
       try {
         const response = await fetch(url);
         reviews = await response.json();
+        console.log("reviews", reviews);
       } catch (error) {
         console.error(error);
         // Failed to fetch products
-        placeholder.innerHTML = '';
+        placeholder.innerHTML = '<div class="placeholder l-grid centered"></div>';
         return;
       }
-      console.log(reviews);
 
       reviews.forEach((review) => {
         nbTeasers++;
