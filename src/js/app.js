@@ -152,7 +152,7 @@ $(() => {
         }
       
         output += `<div class="reviewcard ">
-                    <p style="review-text">${review.review}</p>
+                    <p class="review-text">${review.review}</p>
                       <div style="display: flex; justify-content: space-between; ">
                           <div style="display: flex; flex-direction: column; gap: 16px; justify-content: center; align-items: center; width: 100%;">
                             <div style="display: flex; flex-direction: row; height: 1rem;">`;
