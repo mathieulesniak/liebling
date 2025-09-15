@@ -147,7 +147,7 @@ $(() => {
 
       reviews.forEach((review) => {
         nbTeasers++;
-        if (nbTeasers > 4) {
+        if (nbTeasers > 12) {
           return;
         }
       
