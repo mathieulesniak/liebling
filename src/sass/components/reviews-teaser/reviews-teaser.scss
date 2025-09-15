@@ -1,0 +1,55 @@
+.reviewgrid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1rem;
+
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+.reviewcard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 0.5rem;
+    background-color: #ffffff;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border: solid 1px rgba(0, 0, 0, 0.1);
+}
+.avatar > div {
+    aspect-ratio: 1;
+    display: block;
+    overflow: hidden;
+}
+
+.rounded-full {
+    border-radius: 9999px;
+}
+.w-12 {
+    width: 48px;
+}
+.avatar img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.w-4 {
+    width: 16px;
+}
+.h-4 {
+    height: 16px;
+}
+.bg-yellow-400 {
+    background-color: #facc15;
+}
+.bg-slate-200 {
+    background-color: #e2e8f0;
+}
+.mask {
+    mask-position: center;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+}
+.mask-star-2 {
+    mask-image: url("data:image/svg+xml,%3csvg width='192' height='180' xmlns=\'http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m96 153.044-58.779 26.243 7.02-63.513L.894 68.481l63.117-13.01L96 0l31.989 55.472 63.117 13.01-43.347 47.292 7.02 63.513z' fill-rule='evenodd'/%3e%3c/svg%3e");
+}
